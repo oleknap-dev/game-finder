@@ -12,7 +12,7 @@ function GameList() {
       let nextPage = url;
       let callCounter = 0;
       try {
-        while (nextPage && callCounter < 1) {
+        while (nextPage && callCounter < 0) {
           const respone = await fetch(nextPage);
           const data = await respone.json();
           allGames = allGames.concat(data.results);
@@ -34,7 +34,7 @@ function GameList() {
         {games.map((game) => (
           <li key={game.id}>
             <h2>{game.name}</h2>
-            <img src={game.background_image} width={400} height={200} />
+            <img src={game.background_image} />
           </li>
         ))}
       </ul>

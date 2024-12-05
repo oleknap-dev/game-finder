@@ -1,12 +1,21 @@
-import GameList from "./components/GameList/GameList";
-import Sidebar from "./components/Sidebar/Sidebar";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home";
+import Genres from "./pages/Genres";
+import Tags from "./pages/Tags";
+import Platforms from "./pages/Platforms";
 
 function App() {
   return (
-    <div>
-      <Sidebar />
-      <GameList />
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/genres" element={<Genres />} />
+        <Route path="/tags" element={<Tags />} />
+        <Route path="/platforms" element={<Platforms />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
