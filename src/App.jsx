@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
+import Games from "./pages/Games";
 import Genres from "./pages/Genres";
 import Tags from "./pages/Tags";
 import Platforms from "./pages/Platforms";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/genres" element={<Genres />} />
         <Route path="/tags" element={<Tags />} />
         <Route path="/platforms" element={<Platforms />} />
+        <Route path="/games" element={<Games />} />
       </Routes>
     </BrowserRouter>
   );
