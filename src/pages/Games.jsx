@@ -7,6 +7,7 @@ function Games() {
 
   return (
     <div>
+      <h1>Games:</h1>
       <GameList genre={genre} />
     </div>
   );
