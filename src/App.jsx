@@ -5,6 +5,7 @@ import Games from "./pages/Games";
 import Genres from "./pages/Genres";
 import Tags from "./pages/Tags";
 import Platforms from "./pages/Platforms";
+import GameDetails from "./pages/GameDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/tags" element={<Tags />} />
         <Route path="/platforms" element={<Platforms />} />
         <Route path="/games" element={<Games />} />
+        <Route path="/games/:game" element={<GameDetails />} />
       </Routes>
     </BrowserRouter>
   );
