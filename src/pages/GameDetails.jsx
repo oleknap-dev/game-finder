@@ -23,7 +23,6 @@ function GameDetails() {
     }
     fetchGameDetails();
   }, []);
-  console.log(gameDetails);
 
   if (isLoading) return <p>Loading...</p>;
   if (!gameDetails) return <p>Game Details not avaiable</p>;
