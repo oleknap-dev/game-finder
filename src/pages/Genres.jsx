@@ -33,6 +33,7 @@ function Genres() {
 
   return (
     <div>
+      <h2>Genres:</h2>
       <ul>
         {genres.map((genre) => (
           <li key={genre.id}>
