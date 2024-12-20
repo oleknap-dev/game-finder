@@ -33,6 +33,7 @@ function Platforms() {
 
   return (
     <div>
+      <h2>Platforms:</h2>
       <ul>
         {platforms.map((platform) => (
           <li key={platform.id}>
