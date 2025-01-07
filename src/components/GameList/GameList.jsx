@@ -36,17 +36,19 @@ function GameList({ genre, platform }) {
 
   return (
     <>
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>
-            <GameCard
-              gameId={game.id}
-              gameName={game.name}
-              gameImage={game.background_image}
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="flex items-center justify-center">
+        <ul>
+          {games.map((game) => (
+            <li className="mb-8" key={game.id}>
+              <GameCard
+                gameId={game.id}
+                gameName={game.name}
+                gameImage={game.background_image}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
