@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import GameCard from "../GameCard/GameCard";
 
 const API_KEY = "316b02e4cb72464d92ea018d43c541a0";
 
 function GameList({ genre, platform }) {
   const [games, setGames] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
 
   let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
 
@@ -34,22 +34,21 @@ function GameList({ genre, platform }) {
   if (isLoading) return <p>Loading...</p>;
   if (!games.length) return <p>No games found</p>;
 
-  const handleGameClick = (gameSlug) => {
-    navigate(`/games/${gameSlug}`);
-  };
-
   return (
     <>
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>
-            <button onClick={() => handleGameClick(game.slug)}>
-              {game.name}
-            </button>
-            <img src={game.background_image} width={100} height={50} />
-          </li>
-        ))}
-      </ul>
+      <div className="flex items-center justify-center">
+        <ul>
+          {games.map((game) => (
+            <li className="mb-8" key={game.id}>
+              <GameCard
+                gameId={game.id}
+                gameName={game.name}
+                gameImage={game.background_image}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
