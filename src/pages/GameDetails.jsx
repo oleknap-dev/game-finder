@@ -2,12 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function GameDetails() {
-  const { game } = useParams();
+  const { id } = useParams();
   const [gameDetails, setGameDetails] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   const API_KEY = "316b02e4cb72464d92ea018d43c541a0";
-  const url = `https://api.rawg.io/api/games/${game}?key=${API_KEY}`;
+  const url = `https://api.rawg.io/api/games/${id}?key=${API_KEY}`;
 
   useEffect(() => {
     async function fetchGameDetails() {

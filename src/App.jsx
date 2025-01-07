@@ -18,7 +18,7 @@ function App() {
           <Route path="/tags" element={<Tags />} />
           <Route path="/platforms" element={<Platforms />} />
           <Route path="/games" element={<Games />} />
-          <Route path="/games/:game" element={<GameDetails />} />
+          <Route path="/games/:id" element={<GameDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
