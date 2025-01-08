@@ -9,19 +9,17 @@ import GameDetails from "./pages/GameDetails";
 
 function App() {
   return (
-    <div className="bg-gray-900 text-white">
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/genres" element={<Genres />} />
-          <Route path="/tags" element={<Tags />} />
-          <Route path="/platforms" element={<Platforms />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/games/:id" element={<GameDetails />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/genres" element={<Genres />} />
+        <Route path="/tags" element={<Tags />} />
+        <Route path="/platforms" element={<Platforms />} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/games/:id" element={<GameDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
