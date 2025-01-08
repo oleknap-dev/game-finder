@@ -28,7 +28,7 @@ function GameDetails() {
   if (!gameDetails) return <p>Game Details not avaiable</p>;
 
   return (
-    <div>
+    <div className="text-white">
       <h1>Title: {gameDetails.name}</h1>
       <img src={gameDetails.background_image} width={200} height={100}></img>
       <img
