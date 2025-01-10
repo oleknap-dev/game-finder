@@ -18,7 +18,6 @@ function GameDetails() {
         const respone = await fetch(url);
         const data = await respone.json();
         setGameDetails(data);
-        console.log(data.platforms);
         setGamePlatforms(data.platforms);
         const repsone2 = await fetch(screenShotsUrl);
         const data2 = await repsone2.json();
@@ -47,10 +46,20 @@ function GameDetails() {
           </li>
         ))}
       </ul>
+      <h1>Requirements :</h1>
       <ul>
-        {gamePlatforms.map((object) => (
-          <li>{console.log(object.requirements.minimum)}</li>
-        ))}
+        {gamePlatforms.map((object) => {
+          console.log(object.requirements.minimum);
+          console.log(object.requirements.recommended);
+          if (object.platform.slug === "pc") {
+            return (
+              <li>
+                <p>{object.requirements.minimum}</p>
+                <p>{object.requirements.recommended}</p>
+              </li>
+            );
+          }
+        })}
       </ul>
     </div>
   );
