@@ -35,32 +35,39 @@ function GameDetails() {
   if (!gameDetails) return <p>Game Details not avaiable</p>;
 
   return (
-    <div className="text-white">
-      <h1>{gameDetails.name}</h1>
-      <h3>About</h3>
-      <div dangerouslySetInnerHTML={{ __html: gameDetails.description }}></div>
-      <ul>
-        {gameScreenShots.map((screenShot) => (
-          <li key={screenShot.id}>
-            <img src={screenShot.image} width={192} height={108}></img>
-          </li>
-        ))}
-      </ul>
-      <h1>Requirements :</h1>
-      <ul>
-        {gamePlatforms.map((object) => {
-          console.log(object.requirements.minimum);
-          console.log(object.requirements.recommended);
-          if (object.platform.slug === "pc") {
-            return (
-              <li>
-                <p>{object.requirements.minimum}</p>
-                <p>{object.requirements.recommended}</p>
-              </li>
-            );
-          }
-        })}
-      </ul>
+    <div className="flex flex-col text-white items-center">
+      <h1 className="text-5xl font-extrabold">{gameDetails.name}</h1>
+      <div className="my-16">
+        <ul>
+          {gameScreenShots.map((screenShot) => (
+            <li key={screenShot.id}>
+              <img src={screenShot.image} width={192} height={108}></img>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="w-1/3">
+        <h2 className="text-xl font-bold mb-4">About</h2>
+        <div
+          className="font-sm [&>p]:mb-4"
+          dangerouslySetInnerHTML={{ __html: gameDetails.description }}
+        ></div>
+      </div>
+      <div className="w-1/3 mt-4">
+        <h2 className="text-xl font-bold mb-4">Requirements :</h2>
+        <ul>
+          {gamePlatforms.map((object) => {
+            if (object.platform.slug === "pc") {
+              return (
+                <li>
+                  <p>{object.requirements.minimum}</p>
+                  <p>{object.requirements.recommended}</p>
+                </li>
+              );
+            }
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
