@@ -20,6 +20,7 @@ function GameDetails() {
         const data = await respone.json();
         setGameDetails(data);
         setGamePlatforms(data.platforms);
+        console.log(data.platforms);
         const repsone2 = await fetch(screenShotsUrl);
         const data2 = await repsone2.json();
         setGameScreenShots(data2.results);
@@ -50,10 +51,9 @@ function GameDetails() {
       <div className="w-1/3">
         <h2 className="text-xl font-bold mb-4">About</h2>
         <div
-        // className="font-sm [&>p]:mb-4"
-        // dangerouslySetInnerHTML={{ __html: gameDetails.description }}
+          className="font-sm [&>p]:mb-4"
+          dangerouslySetInnerHTML={{ __html: gameDetails.description }}
         ></div>
-        <ReadMore text={gameDetails.description} />
       </div>
       <div className="w-1/3 mt-4">
         <h2 className="text-xl font-bold mb-4">Requirements :</h2>
