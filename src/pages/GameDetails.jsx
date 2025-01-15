@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ReadMore from "../components/ReadMore/ReadMore";
 
 function GameDetails() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function GameDetails() {
         const data = await respone.json();
         setGameDetails(data);
         setGamePlatforms(data.platforms);
+        console.log(data.platforms);
         const repsone2 = await fetch(screenShotsUrl);
         const data2 = await repsone2.json();
         setGameScreenShots(data2.results);
@@ -60,8 +62,13 @@ function GameDetails() {
             if (object.platform.slug === "pc") {
               return (
                 <li>
-                  <p>{object.requirements.minimum}</p>
-                  <p>{object.requirements.recommended}</p>
+                  <ReadMore
+                    text={
+                      object.requirements.minimum +
+                      "\n\n" +
+                      object.requirements.recommended
+                    }
+                  />
                 </li>
               );
             }
