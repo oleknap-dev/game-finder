@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ReadMore from "../components/ReadMore/ReadMore";
 
 function GameDetails() {
   const { id } = useParams();
@@ -49,9 +50,10 @@ function GameDetails() {
       <div className="w-1/3">
         <h2 className="text-xl font-bold mb-4">About</h2>
         <div
-          className="font-sm [&>p]:mb-4"
-          dangerouslySetInnerHTML={{ __html: gameDetails.description }}
+        // className="font-sm [&>p]:mb-4"
+        // dangerouslySetInnerHTML={{ __html: gameDetails.description }}
         ></div>
+        <ReadMore text={gameDetails.description} />
       </div>
       <div className="w-1/3 mt-4">
         <h2 className="text-xl font-bold mb-4">Requirements :</h2>
@@ -60,8 +62,13 @@ function GameDetails() {
             if (object.platform.slug === "pc") {
               return (
                 <li>
-                  <p>{object.requirements.minimum}</p>
-                  <p>{object.requirements.recommended}</p>
+                  <ReadMore
+                    text={
+                      object.requirements.minimum +
+                      "\n\n" +
+                      object.requirements.recommended
+                    }
+                  />
                 </li>
               );
             }
