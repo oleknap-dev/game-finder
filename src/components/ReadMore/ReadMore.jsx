@@ -5,10 +5,6 @@ function ReadMore({ text, maxLength = 200 }) {
 
   const toggleReadMore = () => setIsExpanded((prev) => !prev);
 
-  if (text.length < 1) {
-    return;
-  }
-
   const displayedText = isExpanded
     ? text
     : `${text.substring(0, maxLength)}...`;

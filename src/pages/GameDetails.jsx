@@ -54,19 +54,30 @@ function GameDetails() {
       <div className="w-1/3 mt-4">
         <h2 className="text-xl font-bold mb-4">Requirements :</h2>
         <ul>
-          {gamePlatforms.map((object) => {
-            if (object.platform.slug === "pc") {
-              return (
-                <li>
-                  <ReadMore
-                    text={
-                      object.requirements.minimum +
-                      "\n\n" +
-                      object.requirements.recommended
-                    }
-                  />
-                </li>
-              );
+          {gamePlatforms.map((platforms) => {
+            if (platforms.platform.slug === "pc") {
+              const requirements =
+                platforms.requirements.minimum +
+                platforms.requirements.recommended;
+              if (requirements.length > 0) {
+                return (
+                  <li key={platforms.platform.id}>
+                    <ReadMore
+                      text={
+                        platforms.requirements.minimum +
+                        "\n" +
+                        platforms.requirements.recommended
+                      }
+                    />
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={platforms.platform.id}>
+                    <ReadMore text={"No requirements provided"} />
+                  </li>
+                );
+              }
             }
           })}
         </ul>
