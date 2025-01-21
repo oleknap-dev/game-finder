@@ -52,34 +52,23 @@ function GameDetails() {
         <ReadMore text={gameDetails.description_raw} />
       </div>
       <div className="w-1/3 mt-4">
-        <h2 className="text-xl font-bold mb-4">Requirements :</h2>
+        <h2 className="text-xl font-bold mb-4">PC Requirements :</h2>
         <ul>
-          {gamePlatforms.map((platforms) => {
-            if (platforms.platform.slug === "pc") {
-              const requirements =
-                platforms.requirements.minimum +
-                platforms.requirements.recommended;
-              if (requirements.length > 0) {
-                return (
-                  <li key={platforms.platform.id}>
-                    <ReadMore
-                      text={
-                        platforms.requirements.minimum +
-                        "\n" +
-                        platforms.requirements.recommended
-                      }
-                    />
-                  </li>
-                );
-              } else {
-                return (
-                  <li key={platforms.platform.id}>
-                    <ReadMore text={"No requirements provided"} />
-                  </li>
-                );
-              }
-            }
-          })}
+          {gamePlatforms
+            .filter((platforms) => platforms.platform.slug === "pc")
+            .map((platform) => {
+              const { minimum, recommended } = platform.requirements || {};
+
+              const gameRequirements =
+                [minimum, recommended].filter(Boolean).join("\n") ||
+                "No requirements provided";
+
+              return (
+                <li key={platform.platform.id}>
+                  <ReadMore text={gameRequirements} />
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>
