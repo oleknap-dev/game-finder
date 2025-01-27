@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoryCard from "../components/CategoryCard/CategoryCard";
 
 const API_KEY = "316b02e4cb72464d92ea018d43c541a0";
 const url = `https://api.rawg.io/api/platforms?key=${API_KEY}`;
@@ -32,14 +33,15 @@ function Platforms() {
   };
 
   return (
-    <div>
-      <h2>Platforms:</h2>
-      <ul>
+    <div className=" text-white flex justify-center items-center">
+      <ul className="grid grid-cols-3 gap-4">
         {platforms.map((platform) => (
           <li key={platform.id}>
-            <button onClick={() => handlePlatformClick(platform.id)}>
-              {platform.name}
-            </button>
+            <CategoryCard
+              categoryId={platform.id}
+              categoryName={platform.name}
+              categoryImage={platform.image_background}
+            />
           </li>
         ))}
       </ul>
