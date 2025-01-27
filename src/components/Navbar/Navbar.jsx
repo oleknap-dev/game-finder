@@ -7,7 +7,7 @@ function Navbar() {
         <div className="py-4 z-10 font-extrabold text-xl text-gray-300 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
           <Link to="/">Game Browser</Link>
         </div>
-        <ul className="absolute inset-0 text-black flex flex-row m-0 space-x-8 justify-center items-center py-4 font-medium text-base">
+        <ul className="absolute inset-0 text-black flex flex-row m-0 space-x-8 justify-center items-center py-4 font-medium text-lg">
           <li>
             <Link to="/genres">Genres</Link>
           </li>
