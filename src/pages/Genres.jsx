@@ -32,7 +32,7 @@ function Genres() {
   };
 
   return (
-    <div>
+    <div className="text-white">
       <h2>Genres:</h2>
       <ul>
         {genres.map((genre) => (

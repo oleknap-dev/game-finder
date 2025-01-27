@@ -14,7 +14,7 @@ function GameCard({ gameName, gameImage, gameId }) {
           <img
             className="rounded-t-xl w-96 h-48 object-cover"
             src={gameImage}
-          ></img>
+          />
         </button>
       </div>
       <div className="mt-3 font-bold text-white">
