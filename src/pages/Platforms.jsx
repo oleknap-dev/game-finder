@@ -41,6 +41,7 @@ function Platforms() {
               categoryId={platform.id}
               categoryName={platform.name}
               categoryImage={platform.image_background}
+              navigate={() => handlePlatformClick(platform.id)}
             />
           </li>
         ))}

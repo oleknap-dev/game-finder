@@ -3,12 +3,12 @@ import GameList from "../components/GameList/GameList";
 
 function Games() {
   const [searchParams] = useSearchParams();
-  const genre = searchParams.get("genre");
   const platform = searchParams.get("platform");
+  const genre = searchParams.get("genre");
 
   return (
     <div>
-      <GameList genre={genre} platform={platform} />
+      <GameList platform={platform} genre={genre} />
     </div>
   );
 }
