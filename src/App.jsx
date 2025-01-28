@@ -11,14 +11,16 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/genres" element={<Genres />} />
-        <Route path="/tags" element={<Tags />} />
-        <Route path="/platforms" element={<Platforms />} />
-        <Route path="/games" element={<Games />} />
-        <Route path="/games/:id" element={<GameDetails />} />
-      </Routes>
+      <div className="text-white">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/genres" element={<Genres />} />
+          <Route path="/tags" element={<Tags />} />
+          <Route path="/platforms" element={<Platforms />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/games/:id" element={<GameDetails />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
