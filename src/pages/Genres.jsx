@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoryCard from "../components/CategoryCard/CategoryCard";
 
 const API_KEY = "316b02e4cb72464d92ea018d43c541a0";
 const url = `https://api.rawg.io/api/genres?key=${API_KEY}`;
@@ -32,20 +33,24 @@ function Genres() {
   };
 
   return (
-    <div className="text-white">
-      <h2>Genres:</h2>
-      <ul>
-        {genres.map((genre) => (
-          <li key={genre.id}>
-            <CategoryCard
-              categoryId={genre.id}
-              categoryName={genre.name}
-              categoryImage={genre.image_background}
-              navigate={() => handlePlatformClick(genre.id)}
-            />
-          </li>
-        ))}
-      </ul>
+    <div className="flex justify-center">
+      <div className="flex flex-col items-start">
+        <h1 className="text-gray-200 font-extrabold text-7xl mb-8">Genres</h1>
+        <div className="text-white flex justify-center">
+          <ul className="grid grid-cols-3 gap-4">
+            {genres.map((genre) => (
+              <li key={genre.id}>
+                <CategoryCard
+                  categoryId={genre.id}
+                  categoryName={genre.name}
+                  categoryImage={genre.image_background}
+                  navigate={() => handleGenreClick(genre.slug)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
