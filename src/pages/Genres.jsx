@@ -37,9 +37,12 @@ function Genres() {
       <ul>
         {genres.map((genre) => (
           <li key={genre.id}>
-            <button onClick={() => handleGenreClick(genre.slug)}>
-              {genre.name}
-            </button>
+            <CategoryCard
+              categoryId={genre.id}
+              categoryName={genre.name}
+              categoryImage={genre.image_background}
+              navigate={() => handlePlatformClick(genre.id)}
+            />
           </li>
         ))}
       </ul>

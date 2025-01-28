@@ -33,19 +33,26 @@ function Platforms() {
   };
 
   return (
-    <div className=" text-white flex justify-center items-center">
-      <ul className="grid grid-cols-3 gap-4">
-        {platforms.map((platform) => (
-          <li key={platform.id}>
-            <CategoryCard
-              categoryId={platform.id}
-              categoryName={platform.name}
-              categoryImage={platform.image_background}
-              navigate={() => handlePlatformClick(platform.id)}
-            />
-          </li>
-        ))}
-      </ul>
+    <div className="flex justify-center">
+      <div className="flex flex-col items-start">
+        <h1 className="text-gray-200 font-extrabold text-7xl mb-8">
+          Platforms
+        </h1>
+        <div className="text-white flex justify-center">
+          <ul className="grid grid-cols-3 gap-4">
+            {platforms.map((platform) => (
+              <li key={platform.id}>
+                <CategoryCard
+                  categoryId={platform.id}
+                  categoryName={platform.name}
+                  categoryImage={platform.image_background}
+                  navigate={() => handlePlatformClick(platform.id)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
