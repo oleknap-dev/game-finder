@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ReadMore from "../components/ReadMore/ReadMore";
+import ImageSlider from "../components/ImageSlider/ImageSlider";
 
 function GameDetails() {
   const { id } = useParams();
@@ -39,13 +40,7 @@ function GameDetails() {
     <div className="flex flex-col text-white items-center">
       <h1 className="text-5xl font-extrabold">{gameDetails.name}</h1>
       <div className="my-16">
-        <ul>
-          {gameScreenShots.map((screenShot) => (
-            <li key={screenShot.id}>
-              <img src={screenShot.image} width={192} height={108}></img>
-            </li>
-          ))}
-        </ul>
+        <ImageSlider images={gameScreenShots} />
       </div>
       <div className="w-1/3">
         <h2 className="text-xl font-bold mb-4">About</h2>
