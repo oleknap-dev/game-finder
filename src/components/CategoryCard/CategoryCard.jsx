@@ -6,7 +6,7 @@ function CategoryCard({ categoryName, categoryImage, categoryId, navigate }) {
         style={{ backgroundImage: `url(${categoryImage})` }}
       ></div>
       <button
-        className="w-40 h-14 bg-white absolute bg-opacity-25 text-base font-bold"
+        className="w-40 h-14 bg-white absolute bg-opacity-25 text-base font-bold hover:bg-opacity-20 active:bg-opacity-25"
         onClick={navigate}
       >
         {categoryName}
