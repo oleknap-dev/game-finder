@@ -38,8 +38,8 @@ function GameDetails() {
 
   return (
     <div className="flex flex-col text-white items-center">
-      <h1 className="text-5xl font-extrabold">{gameDetails.name}</h1>
-      <div className="my-16">
+      <h1 className="text-5xl font-extrabold m-4">{gameDetails.name}</h1>
+      <div className="m-4">
         <ImageSlider images={gameScreenShots} />
       </div>
       <div className="w-1/3">

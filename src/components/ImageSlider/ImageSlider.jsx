@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function ImageSlider({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,10 +14,22 @@ function ImageSlider({ images }) {
     setCurrentIndex((prev) => (prev !== min ? prev - 1 : max));
 
   return (
-    <div className="flex flex-row">
-      <button onClick={prevImage}>previous</button>
-      <img src={image} />
-      <button onClick={nextImage}>next</button>
+    <div className="flex flex-row relative overflow-hidden rounded-md">
+      <img className="w-[768px] aspect-video opacity-75" src={image} />
+      <button
+        className="absolute top-1/2 -translate-y-1/2 left-1 w-12 h-12 pl-[3px]
+        rounded-full  bg-slate-300 bg-opacity-15 hover:bg-opacity-20 active:bg-opacity-30"
+        onClick={prevImage}
+      >
+        <ChevronLeft size={40} />
+      </button>
+      <button
+        className="absolute top-1/2 -translate-y-1/2 right-1 w-12 h-12 pl-[6px]
+        rounded-full  bg-slate-300 bg-opacity-15 hover:bg-opacity-20 active:bg-opacity-30"
+        onClick={nextImage}
+      >
+        <ChevronRight size={40} />
+      </button>
     </div>
   );
 }
